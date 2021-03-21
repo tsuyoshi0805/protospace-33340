@@ -22,17 +22,24 @@ class PrototypesController < ApplicationController
     end
 
     def edit
-
+      @prototype = Prototype.find(params[:id])
     end
 
     def update
+      @prototype = Prototype.find(params[:id])
+      @prototype.update(prototypes_params)
+      if @prototype.save
+        redirect_to prototype_path
+      else
+        render :edit
+      end
 
     end
 
   
     private
     def prototypes_params
-      params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
+      params.require(:prototype).permit(:title, :catch_copy, :concept, :image, :update).merge(user_id: current_user.id)
     end 
     def move_to_index
       unless user_signed_in?

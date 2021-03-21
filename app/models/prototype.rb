@@ -8,5 +8,5 @@ class Prototype < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
-
+  has_many :comments  # commentsテーブルとのアソシエーション
 end

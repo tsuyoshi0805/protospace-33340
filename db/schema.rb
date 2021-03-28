@@ -36,10 +36,10 @@ ActiveRecord::Schema.define(version: 2021_03_21_072245) do
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text"
     t.bigint "user_id"
-    t.bigint "Prototype_id"
+    t.bigint "prototype_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["Prototype_id"], name: "index_comments_on_Prototype_id"
+    t.index ["prototype_id"], name: "index_comments_on_prototype_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 

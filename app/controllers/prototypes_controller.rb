@@ -14,7 +14,7 @@ def index
   
     def create
       @prototype = Prototype.new(prototypes_params)
-      
+
         if @prototype.save
           redirect_to root_path
         else   
@@ -56,7 +56,7 @@ def index
 
     private
     def prototypes_params
-      params.require(:prototype).permit(:title, :catch_copy, :concept, :image, :update).merge(user_id: current_user.id)
+      params.require(:prototype).permit(:title, :catch_copy, :concept, :image).merge(user_id: current_user.id)
     end 
    
     def move_to_index
